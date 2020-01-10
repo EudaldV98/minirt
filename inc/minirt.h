@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:07:24 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/10 17:44:58 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ void				ft_reset_pixel(t_vect3 *pixel);
 double				ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n);
 
 void				ft_reset_lst(char *lst);
+void				ft_reset_lst_2(char *lst);
 int					ft_check_specular(t_ray ray, const int coord[2], int num);
 t_vect3				ft_check_transparence(t_ray ray, const int coord[2], int num);
 void				ft_create_bmp(char *name, int len_name);
