@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: janeudaldvaquer <janeudaldvaquer@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:18 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:04:19 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/16 23:06:45 by janeudaldva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	ft_put_scene(void)
 	mlx_loop(g_mlx.mlx);
 }
 
-void	ft_file(char **av, int len_name)
+void	ft_file(char **av, int *len_name)
 {
 	char	*file;
 
-	len_name = 0;
-	while (av[1][len_name] && av[1][len_name] != '.')
-		len_name++;
-	if (ft_strcmp(&av[1][len_name], ".rt"))
+	*len_name = 0;
+	while (av[1][*len_name] && av[1][*len_name] != '.')
+		*len_name += 1;
+	if (ft_strcmp(&av[1][*len_name], ".rt"))
 		ft_print_error(-2);
 	file = ft_read_file(av[1]);
 	ft_init();
@@ -61,7 +61,7 @@ int     main(int ac, char **av)
 	int			len_name;
 
 	ft_check_error(ac);
-	ft_file(av, len_name);
+	ft_file(av, &len_name);
 	ft_new_img(g_data);
 	ft_draw(g_data);
 	if (ac == 2)

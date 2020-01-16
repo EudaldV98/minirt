@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT_close_win.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: janeudaldvaquer <janeudaldvaquer@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 15:02:17 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:04:06 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/16 22:46:08 by janeudaldva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

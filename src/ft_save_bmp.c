@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_bmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: janeudaldvaquer <janeudaldvaquer@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:18 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:01:46 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/16 23:15:44 by janeudaldva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void		ft_fill_img_bmp(char **bmp)
 		x = -1;
 		while (++x < g_data->render[0])
 		{
-			i = (x * g_data->image->bpp) + (y * g_data->image->stride);
-			*(*bmp + k++) = *(g_data->image->ptr + i++);
-			*(*bmp + k++) = *(g_data->image->ptr + i++);
-			*(*bmp + k++) = *(g_data->image->ptr + i);
+			i = (x * g_data->im->bpp) + (y * g_data->im->stride);
+			*(*bmp + k++) = *(g_data->im->ptr + i++);
+			*(*bmp + k++) = *(g_data->im->ptr + i++);
+			*(*bmp + k++) = *(g_data->im->ptr + i);
 		}
 	}
 }
@@ -80,6 +80,7 @@ void		ft_create_bmp(char *name, int len_name)
 	char	*bmp_name;
 	char	*bmp_img;
 
+	printf("%d\n", len_name);
 	if (!(bmp_name = malloc(sizeof(char) * (len_name + 5))))
 		ft_print_error(-1);
 	i = -1;
