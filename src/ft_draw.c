@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janeudaldvaquer <janeudaldvaquer@studen    +#+  +:+       +#+        */
+/*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 11:59:24 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/17 20:45:54 by janeudaldva      ###   ########.fr       */
+/*   Updated: 2020/01/18 22:06:22 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ t_vect3		ft_ray_trace(t_ray ray, const int coord[2], int num)
 	return (g_data->pixel);
 }
 
-void		ft_draw()
+void		ft_draw(void)
 {
 	int coord[2];
 
