@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 16:46:06 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:05:02 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/19 12:39:56 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_parse_pl_2(char *s, int i, double aux[3])
 								g_data->pl->ratio_tran;
 	}
 	i = g_data->pl->spec == 1 ? i + 1 : i;
-	if (s[i] != '\n')
+	if (s[i] != '\n' && s[i] != '\0')
 		return (-1);
 	return (i);
 }

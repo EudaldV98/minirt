@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:18:14 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:59:05 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/19 12:40:16 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ int		ft_parse_tr(char *s, int i)
 		g_data->tr->spec = 1;
 	else if (s[i] == 't')
 		i = ft_parse_tr_3(s, i);
-	if (i == -1)
+	if ((i = g_data->tr->spec == 1 && i != -1 ? i + 1 : i) == -1 ||
+		(s[i] != 10 && s[i] != '\0'))
 		return (-1);
 	if (g_data->tr->id == 0)
 		save_tr = g_data->tr;

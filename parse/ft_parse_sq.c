@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:55:34 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/10 17:05:23 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/19 12:40:09 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		ft_create_square_point(t_square *sq)
 
 int		ft_parse_sq_3(char *s, int i)
 {
-	if (s[i] == 's')
+	if (s[i] == 'm')
 		g_data->sq->spec = 1;
 	else if (s[i] == 't')
 	{
@@ -48,7 +48,7 @@ int		ft_parse_sq_3(char *s, int i)
 		g_data->sq->ratio_tran = ft_atod(&s[i]);
 		i = ft_pass_double(s, i);
 		g_data->sq->ratio_tran = (g_data->sq->ratio_tran == 0) ? 1 :
-								g_data->sq->ratio_tran;
+														g_data->sq->ratio_tran;
 	}
 	return (i);
 }
@@ -93,7 +93,7 @@ int		ft_parse_sq(char *s, int i)
 		i++;
 	i = ft_parse_sq_3(s, i);
 	i = g_data->sq->spec == 1 && i != -1 ? i + 1 : i;
-	if (s[i] != '\n' || ft_init_tr_in_sq(g_data->sq) == -1)
+	if ((s[i] != '\n' && s[i] != '\0') || ft_init_tr_in_sq(g_data->sq) == -1)
 		return (-1);
 	ft_create_square_point(g_data->sq);
 	if (g_data->sq->id == 0)
