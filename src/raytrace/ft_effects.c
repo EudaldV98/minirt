@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:05:08 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 23:55:04 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 21:40:53 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ t_vect3			ft_check_transparence(t_ray ray)
 		{
 			g_data->ray_tran.origin = ft_vec_diff(g_data->inter.p,
 					ft_vec_mult_scalar(n_tran, EPS));
-			tmp = ft_vec_mult_scalar(ft_vec_diff(ray.dir, ft_vec_mult_scalar(n_tran,
-					ft_dot_product(ray.dir, n_tran))), (n[0] / n[1]));
+			tmp = ft_vec_mult_scalar(ft_vec_diff(ray.dir, ft_vec_mult_scalar(
+				n_tran, ft_dot_product(ray.dir, n_tran))), (n[0] / n[1]));
 			aux_dir = ft_vec_mult_scalar(n_tran, sqrt(n[2]));
-			g_data->ray_tran.dir = ft_vec_diff(tmp,aux_dir);
+			g_data->ray_tran.dir = ft_vec_diff(tmp, aux_dir);
 			return (color);
 		}
 	}

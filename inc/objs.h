@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:00:54 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:37:52 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:05:52 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct			s_ambience
 	t_vect3				color;
 }						t_ambience;
 
-typedef struct 			s_camera
+typedef	struct			s_camera
 {
 	t_vect3				pos;
 	t_vect3				ori;
@@ -68,20 +68,20 @@ typedef	struct			s_plane
 	double				ratio_tran;
 }						t_plane;
 
-typedef struct 			s_triangle
+typedef struct			s_triangle
 {
-	t_vect3 			p_1;
+	t_vect3				p_1;
 	t_vect3				p_2;
-	t_vect3 			p_3;
-	t_vect3 			color;
-	int 				id;
+	t_vect3				p_3;
+	t_vect3				color;
+	int					id;
 	struct s_triangle	*next;
 	int					spec;
 	int					tran;
 	double				ratio_tran;
 }						t_triangle;
 
-typedef	struct			s_square 
+typedef	struct			s_square
 {
 	t_vect3				pos;
 	t_vect3				ori;
@@ -95,7 +95,7 @@ typedef	struct			s_square
 	double				ratio_tran;
 }						t_square;
 
-typedef struct 			s_cylinder
+typedef struct			s_cylinder
 {
 	t_vect3				pos;
 	t_vect3				ori;

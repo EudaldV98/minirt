@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:18:07 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:39:36 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 19:15:06 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ double		ft_for_each_pl(const t_ray ray, t_vect3 *p, t_vect3 *n)
 				pos = g_data->pl->id;
 			}
 		if (g_data->pl->id == -1)
-			break;
+			break ;
 		g_data->pl = g_data->pl->next;
 	}
 	if (min > 0)

@@ -6,13 +6,13 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:49:20 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 23:34:30 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:34:38 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-void	ft_get_norm_cy(t_vect3 *n, t_ray ray)
+void		ft_get_norm_cy(t_vect3 *n, t_ray ray)
 {
 	t_vect3	tmp;
 
@@ -24,7 +24,7 @@ void	ft_get_norm_cy(t_vect3 *n, t_ray ray)
 		*n = ft_vec_mult_scalar(*n, -1);
 }
 
-double	ft_intersection_ray_cy_2(t_vect3 hty, t_vect3 abc,
+double		ft_intersection_ray_cy_2(t_vect3 hty, t_vect3 abc,
 		t_vect3 cardoc)
 {
 	hty.x = sqrt(hty.x);
@@ -39,13 +39,13 @@ double	ft_intersection_ray_cy_2(t_vect3 hty, t_vect3 abc,
 	return (0);
 }
 
-int		ft_intersection_ray_cy(const t_ray ray, t_cylinder *cy)
+int			ft_intersection_ray_cy(const t_ray ray, t_cylinder *cy)
 {
-	t_vect3		ca;
-	t_vect3		oc;
-	t_vect3		abc;
-	t_vect3		hty;
-	t_vect3		cardoc;
+	t_vect3	ca;
+	t_vect3	oc;
+	t_vect3	abc;
+	t_vect3	hty;
+	t_vect3	cardoc;
 
 	ca = ft_vec_diff(ft_vec_add(cy->pos, ft_vec_mult_scalar(cy->ori,
 		cy->height)), cy->pos);
@@ -63,9 +63,8 @@ int		ft_intersection_ray_cy(const t_ray ray, t_cylinder *cy)
 	return (ft_intersection_ray_cy_2(hty, abc, cardoc));
 }
 
-double	ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n)
+double		ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n)
 {
-
 	double	hit;
 	double	min;
 	int		pos;

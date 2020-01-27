@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 10:37:37 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 23:36:15 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 19:15:24 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ double		ft_for_each_sphere(const t_ray ray, t_vect3 *p, t_vect3 *n)
 				pos = g_data->sp->id;
 			}
 		if (g_data->sp->id == -1)
-			break;
+			break ;
 		g_data->sp = g_data->sp->next;
 	}
 	if (min > 0)

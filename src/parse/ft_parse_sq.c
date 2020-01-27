@@ -6,13 +6,13 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:55:34 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:39:20 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 19:24:26 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-void		ft_create_square_point(t_square *sq)
+void				ft_create_square_point(t_square *sq)
 {
 	sq->tr->p_1.x = sq->pos.x - ((sq->height / 2)) * sq->ori.x;
 	sq->tr->p_1.y = sq->pos.y - ((sq->height / 2)) * sq->ori.y;
@@ -34,7 +34,7 @@ void		ft_create_square_point(t_square *sq)
 	sq->tr = sq->tr->next;
 }
 
-int		ft_parse_sq_3(char *s, int i)
+int					ft_parse_sq_3(char *s, int i)
 {
 	if (s[i] == 'm')
 		g_data->sq->spec = 1;
@@ -53,7 +53,7 @@ int		ft_parse_sq_3(char *s, int i)
 	return (i);
 }
 
-int		ft_parse_sq_2(char *s, int i, double aux[3])
+int					ft_parse_sq_2(char *s, int i, double aux[3])
 {
 	if (g_data->sq->id != 0)
 	{
@@ -82,10 +82,10 @@ int		ft_parse_sq_2(char *s, int i, double aux[3])
 	return (i);
 }
 
-int		ft_parse_sq(char *s, int i)
+int					ft_parse_sq(char *s, int i)
 {
-	double				aux[3];
-	static t_square		*save_sq;
+	double			aux[3];
+	static t_square	*save_sq;
 
 	g_data->sq->ratio_tran = 0;
 	i = ft_parse_sq_2(s, i, aux);

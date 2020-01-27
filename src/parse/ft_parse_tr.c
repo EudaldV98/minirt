@@ -6,13 +6,13 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:18:14 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:39:22 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 19:25:51 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-int		ft_parse_tr_3(char *s, int i)
+int						ft_parse_tr_3(char *s, int i)
 {
 	g_data->tr->tran = 1;
 	i++;
@@ -27,7 +27,7 @@ int		ft_parse_tr_3(char *s, int i)
 	return (i);
 }
 
-int		ft_parse_tr_2(char *s, int i, double aux[3])
+int						ft_parse_tr_2(char *s, int i, double aux[3])
 {
 	if (g_data->tr->id != 0)
 	{
@@ -56,7 +56,7 @@ int		ft_parse_tr_2(char *s, int i, double aux[3])
 	return (i);
 }
 
-int		ft_parse_tr(char *s, int i)
+int						ft_parse_tr(char *s, int i)
 {
 	double				aux[3];
 	static t_triangle	*save_tr;

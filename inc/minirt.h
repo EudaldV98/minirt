@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 23:55:11 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:02:28 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ typedef struct		s_image
 	int				endian;
 }					t_image;
 
-typedef	struct 		s_intersec
+typedef	struct		s_intersec
 {
 	t_vect3			p;
 	t_vect3			n;
 	double			pos;
 }					t_intersec;
-
 
 typedef struct		s_data
 {
@@ -128,7 +127,7 @@ void				ft_pixel_cmp(t_vect3 *max_pixel, t_vect3 *pixel);
 double				to_rad(const double deg);
 t_vect3				ft_normal_vector(t_vect3 v);
 t_vect3				ft_cross_product(t_vect3 a, t_vect3 b);
-double			 	ft_dot_product(t_vect3 a, t_vect3 b);
+double				ft_dot_product(t_vect3 a, t_vect3 b);
 t_vect3				ft_vec_diff(t_vect3 v1, t_vect3 v2);
 t_vect3				ft_vec_add(t_vect3 v1, t_vect3 v2);
 t_vect3				ft_vec_mult_scalar(t_vect3 v1, double d);
@@ -141,9 +140,9 @@ double				ft_distance(t_vect3 v1, t_vect3 v2);
 t_vect3				ft_vect_div(t_vect3 v1, t_vect3 v2);
 double				sqr(double x);
 void				ft_set_4vec(t_vect3 *p, t_vect3 *n, t_vect3 aux_p,
-					t_vect3 aux_n);
+								t_vect3 aux_n);
 
-t_vect3		        ft_ray_trace(t_ray ray, const int coord[2], int num);
+t_vect3				ft_ray_trace(t_ray ray, const int coord[2], int num);
 void				ft_draw();
 double				ft_for_each_sphere(const t_ray ray, t_vect3 *p, t_vect3 *n);
 double				ft_for_each_pl(const t_ray ray, t_vect3 *p, t_vect3 *n);
@@ -152,7 +151,8 @@ double				ft_for_each_square(t_ray ray, t_vect3 *p, t_vect3 *n);
 void				ft_reset_pixel(t_vect3 *pixel);
 double				ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n);
 int					ft_for_each_obj(t_ray ray, t_vect3 *p, t_vect3 *n);
-double		ft_intersection_ray_tr(const t_ray ray, t_triangle *tr, t_vect3 *p, t_vect3 *n);
+double				ft_intersection_ray_tr(const t_ray ray, t_triangle *tr,
+											t_vect3 *p, t_vect3 *n);
 void				ft_reset_lst(char *lst);
 int					ft_check_specular(t_ray ray);
 t_vect3				ft_check_transparence(t_ray ray);
