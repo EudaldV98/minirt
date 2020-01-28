@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:13:57 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 21:39:00 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/28 16:05:00 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int		ft_set_ambience_intensity(t_vect3 *intensity, t_vect3 *ambience)
 					/ COLOR_MAX);
 	intensity->z = INTENSITY * g_data->li->ratio * (g_data->li->color.z
 					/ COLOR_MAX);
+	if (ambience->x < 0.001 && ambience->y < 0.001 && ambience->z < 0.001)
+		*ambience = ft_vect_add_scalar(*ambience, 0.001);
 	return (1);
 }
 

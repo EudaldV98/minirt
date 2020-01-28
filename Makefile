@@ -6,7 +6,7 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/01/27 17:07:56 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/01/28 13:05:19 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC = 		image/ft_image.c image/ft_save_bmp.c \
 			raytrace/ft_draw.c raytrace/ft_color.c raytrace/ft_effects.c \
 			raytrace/ft_color_utils.c \
 			\
-			utils/miniRT_utils.c utils/ft_reset_lst.c \
+			utils/minirt_utils.c utils/ft_reset_lst.c \
 			utils/ft_atod.c utils/ft_atoi.c utils/ft_isdigit.c \
 			utils/ft_strlen_nb.c utils/ft_strcmp.c utils/ft_strlen.c \
 			utils/ft_strncmp.c \
@@ -54,13 +54,13 @@ CFLAGS =	-Wall -Wextra -Werror
 all: $(NAME)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) -c $< -o $(<:.c=.o)
 
 $(NAME):	$(OBJS)
-	gcc $(FRAME) $(CFLAGS) $(LMINX) -o $(NAME) $(OBJS)
+	gcc $(FRAME) $(LMINX) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f srcs/*.o srcs/*/*.o
+	rm -f $(OBJS)
 fclean: clean
 	rm -f $(NAME)
 re: fclean all

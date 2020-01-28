@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 11:59:24 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 23:54:55 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/28 16:05:57 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void		ft_generate_ray(const int coord[2])
 {
+	t_vect3	tmp;
+
+	tmp.x = g_data->cam->ori.x * -1 + 1;
+	tmp.y = g_data->cam->ori.y * -1 + 1;
+	tmp.z = g_data->cam->ori.z > 0 ? 1 : -1;
 	g_data->ray.origin.x = g_data->cam->pos.x;
 	g_data->ray.origin.y = g_data->cam->pos.y;
 	g_data->ray.origin.z = g_data->cam->pos.z;
-	g_data->ray.dir.y = coord[1] - (g_data->render[1] / 2) * g_data->cam->ori.y;
-	g_data->ray.dir.x = coord[0] - (g_data->render[0] / 2) * g_data->cam->ori.x;
-	g_data->ray.dir.z = (-g_data->render[1] /
+	g_data->ray.dir.y = coord[1] - (g_data->render[1] / 2) * tmp.y;
+	g_data->ray.dir.x = coord[0] - (g_data->render[0] / 2) * tmp.x;
+	g_data->ray.dir.z = tmp.z * (-g_data->render[1] /
 						(2 * tan((to_rad(g_data->cam->fov) / 2))));
 	g_data->ray.dir = ft_normal_vector(g_data->ray.dir);
 }
@@ -30,15 +35,16 @@ int			ft_check_shadow(t_vect3 *p, t_vect3 *n)
 	t_vect3	tmp_p;
 	t_vect3	tmp_n;
 
+	if (g_data->li->id == 0)
+		return (0);
 	ft_reset_lst("light");
 	while (1)
 	{
 		ray_light.origin = ft_vec_add(*p, ft_vec_mult_scalar(*n, EPS));
 		ray_light.dir = ft_normal_vector(ft_vec_diff(g_data->li->pos, *p));
-		if (ft_for_each_obj(ray_light, &tmp_p, &tmp_n) &&
-		(g_data->inter.pos < EPS ||
-		g_data->inter.pos * g_data->inter.pos > ft_get_norm2(ft_vec_diff(
-		g_data->li->pos, *p))))
+		ft_for_each_obj(ray_light, &tmp_p, &tmp_n);
+		if (g_data->inter.pos < EPS || g_data->inter.pos * g_data->inter.pos >
+			ft_get_norm2(ft_vec_diff(g_data->li->pos, *p)))
 			return (0);
 		if (g_data->li->id == -1)
 			break ;
@@ -82,7 +88,7 @@ t_vect3		ft_ray_trace(t_ray ray, const int coord[2], int num)
 	}
 	else
 		g_data->pixel = ft_vec_mult_scalar(ft_vec_mult_scalar(
-						g_data->amb.color, g_data->amb.ratio), 0.8);
+						g_data->amb.color, g_data->amb.ratio), 0.6);
 	return (g_data->pixel);
 }
 

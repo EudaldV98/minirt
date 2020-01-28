@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 17:02:28 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/28 13:25:58 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,5 +166,6 @@ int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, unsigned int n);
 unsigned int		ft_strlen(const char *str);
 int					ft_strlen_nb(int nb);
+t_vect3				ft_vect_add_scalar(t_vect3 v, double d);
 
 #endif
