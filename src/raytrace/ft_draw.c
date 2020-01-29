@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 11:59:24 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 13:06:30 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 14:40:45 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void		ft_generate_ray(const int coord[2])
 	g_data->ray.origin.x = g_data->cam->pos.x;
 	g_data->ray.origin.y = g_data->cam->pos.y;
 	g_data->ray.origin.z = g_data->cam->pos.z;
-	g_data->ray.dir.y = coord[1] - (g_data->render[1] / 2) * tmp.y;
 	g_data->ray.dir.x = coord[0] - (g_data->render[0] / 2) * tmp.x;
+	g_data->ray.dir.y = coord[1] - (g_data->render[1] / 2) * tmp.y;
 	g_data->ray.dir.z = tmp.z * (-g_data->render[1] /
 						(2 * tan((to_rad(g_data->cam->fov) / 2))));
 	g_data->ray.dir = ft_normal_vector(g_data->ray.dir);

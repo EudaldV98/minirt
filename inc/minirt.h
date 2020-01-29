@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 13:06:12 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 14:16:01 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ int					ft_strncmp(const char *s1, const char *s2, unsigned int n);
 unsigned int		ft_strlen(const char *str);
 int					ft_strlen_nb(int nb);
 t_vect3				ft_vect_add_scalar(t_vect3 v, double d);
-void				ft_do_recursive_trans(t_vect3 tmp_pix, const int *coord, int num);
+void				ft_do_recursive_trans(t_vect3 tmp_pix, const int *coord,
+											int num);
 
 #endif

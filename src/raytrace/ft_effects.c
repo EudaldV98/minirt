@@ -6,13 +6,13 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:05:08 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 21:40:53 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 14:50:39 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-int			ft_check_specular(t_ray ray)
+int				ft_check_specular(t_ray ray)
 {
 	t_vect3	dir_miroir;
 	t_vect3	d;
@@ -40,7 +40,7 @@ int			ft_check_specular(t_ray ray)
 	return (0);
 }
 
-void		ft_filter_color(t_vect3 *color)
+void			ft_filter_color(t_vect3 *color)
 {
 	if (g_data->sp->tran == 1 && ft_strncmp(g_data->obj, "sp", 2) == 0)
 	{

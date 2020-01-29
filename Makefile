@@ -6,7 +6,7 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/01/29 13:07:21 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/01/29 14:18:12 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC = 		image/ft_image.c image/ft_save_bmp.c \
 			utils/ft_strlen_nb.c utils/ft_strcmp.c utils/ft_strlen.c \
 			utils/ft_strncmp.c \
 			\
-			miniRT.c
+			minirt.c
 
 OBJS =	$(SRCS:.c=.o)
 

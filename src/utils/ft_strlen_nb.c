@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:58:51 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:38:14 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 15:02:38 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_strlen_nb(int nb)
 	long	nbr;
 
 	nbr = (nb < 0) ? -nb : nb;
-	len = (nb == 0) ? 1: 0;
+	len = (nb == 0) ? 1 : 0;
 	while (nb > 0)
 	{
 		len++;

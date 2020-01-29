@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:51:56 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 21:35:20 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 15:09:23 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,7 @@ int		ft_get_ori(double ori[3], const char *s, int i)
 			return (-1);
 		if (ori[k] < 0.0)
 			i++;
-		while (s[i] >= '0' && s[i] <= '9')
-			i++;
-		if (s[i] == '.')
-			i++;
-		while (s[i] >= '0' && s[i] <= '9')
-			i++;
+		i = ft_pass_double((char *)s, i);
 		if (s[i] == ',' && k != 2)
 			i++;
 		k++;
@@ -85,7 +80,6 @@ int		ft_get_pos(double pos[3], char *s, int i)
 	int		j;
 
 	j = 0;
-
 	while (j <= 2)
 	{
 		if ((s[i] < '0' || s[i] > '9') && (s[i] == '-' &&
