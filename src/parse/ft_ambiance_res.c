@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:35:38 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:39:00 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 19:08:10 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int		ft_parse_ambiance(char *s, int i)
 	i = ft_get_color(aux, s, i);
 	if (ft_set_ori(&g_data->amb.color, aux, 2) == -1)
 		return (-1);
+	g_data->amb.color.x = g_data->amb.color.x == 0 ? 1 : g_data->amb.color.x;
+	g_data->amb.color.y = g_data->amb.color.x == 0 ? 1 : g_data->amb.color.y;
+	g_data->amb.color.z = g_data->amb.color.x == 0 ? 1 : g_data->amb.color.z;
 	return ((s[i++] == '\n' ? i : -1));
 }
 

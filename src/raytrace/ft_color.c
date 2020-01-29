@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:13:57 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 14:29:51 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 20:00:36 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,24 @@ t_vect3		ft_set_pixel_color(void)
 {
 	t_vect3		param[3];
 
+	if (g_data->li->id == 0)
+	{
+		g_data->li->color = g_data->amb.color;
+		g_data->li->ratio = g_data->amb.ratio;
+	}
 	ft_reset_lst("light");
 	ft_reset_values(&param[2]);
 	while (ft_set_ambience_intensity(&param[1], &param[0]))
 	{
-		ft_color_calc(param);
+		if (g_data->li->id == 0)
+			param[2] = ft_vec_mult_scalar(g_data->color,
+			g_data->amb.ratio * 10);
+		else
+			ft_color_calc(param);
 		ft_check_abs_value(&param[2]);
 		ft_pixel_cmp(&param[2], &g_data->pixel);
-		if (g_data->li->id == -1 || !(g_data->li = g_data->li->next))
+		if (g_data->li->id == 0 || g_data->li->id == -1 ||
+			!(g_data->li = g_data->li->next))
 			break ;
 	}
 	ft_reset_lst("light");

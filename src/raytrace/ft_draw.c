@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 11:59:24 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 14:40:45 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 20:00:45 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,11 @@ t_vect3		ft_ray_trace(t_ray ray, const int coord[2], int num)
 		}
 	}
 	else
+	{
 		g_data->pixel = ft_vec_mult_scalar(ft_vec_mult_scalar(
-						g_data->amb.color, g_data->amb.ratio), 0.6);
+						g_data->amb.color, g_data->amb.ratio), 0.8);
+		ft_check_abs_value(&g_data->pixel);
+	}
 	return (g_data->pixel);
 }
 
@@ -104,7 +107,7 @@ void		ft_draw(void)
 		while (coord[1] < (g_data->render[1]))
 		{
 			g_data->check = 0;
-			if (coord[0] == 1259 && coord[1] == 652)
+			if (coord[0] == 731 && coord[1] == 655)
 				g_data->check = 1;
 			ft_reset_values(&g_data->pixel);
 			ft_generate_ray(coord);

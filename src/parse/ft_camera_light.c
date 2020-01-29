@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:53:10 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 19:16:28 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 19:05:26 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,17 @@ int		ft_camera_light(char *s, int i)
 		else if (s[i] == 'l')
 			i = ft_is_light(s, i, &save_light);
 	}
-	g_data->li->next = save_light;
-	g_data->li->id = -1;
-	g_data->li = save_light;
-	g_data->cam->next = save_cam;
-	g_data->cam->id = -1;
-	g_data->cam = save_cam;
+	if (g_data->li->id != 0)
+	{
+		g_data->li->next = save_light;
+		g_data->li->id = -1;
+		g_data->li = save_light;
+	}
+	if (g_data->cam->id != 0)
+	{
+		g_data->cam->next = save_cam;
+		g_data->cam->id = -1;
+		g_data->cam = save_cam;
+	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 14:16:01 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 17:31:28 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,8 @@ t_vect3				ft_vect_div(t_vect3 v1, t_vect3 v2);
 double				sqr(double x);
 void				ft_set_4vec(t_vect3 *p, t_vect3 *n, t_vect3 aux_p,
 								t_vect3 aux_n);
+void				ft_check_abs_value(t_vect3 *pixel);
+
 
 t_vect3				ft_ray_trace(t_ray ray, const int coord[2], int num);
 void				ft_draw();
