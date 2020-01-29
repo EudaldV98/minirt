@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:13:57 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/28 16:05:00 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/29 12:25:43 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,25 @@ int		ft_set_ambience_intensity(t_vect3 *intensity, t_vect3 *ambience)
 	return (1);
 }
 
+void		ft_color_calc(t_vect3 param[3])
+{
+	if (g_data->color.x)
+		param[2].x = (g_data->color.x / 255) * (param[0].x *
+		ft_dot_product(ft_normal_vector(ft_vec_diff(g_data->li->pos,
+		g_data->inter.p)), g_data->inter.n) * param[1].x /
+		ft_get_norm2(ft_vec_diff(g_data->li->pos, g_data->inter.p)));
+	if (g_data->color.y)
+		param[2].y = (g_data->color.y / 255) * (param[0].y *
+		ft_dot_product(ft_normal_vector(ft_vec_diff(g_data->li->pos,
+		g_data->inter.p)), g_data->inter.n) * param[1].y /
+		ft_get_norm2(ft_vec_diff(g_data->li->pos, g_data->inter.p)));
+	if (g_data->color.z)
+		param[2].z = (g_data->color.z / 255) * (param[0].z *
+		ft_dot_product(ft_normal_vector(ft_vec_diff(g_data->li->pos,
+		g_data->inter.p)), g_data->inter.n) * param[1].z /
+		ft_get_norm2(ft_vec_diff(g_data->li->pos, g_data->inter.p)));
+}
+
 t_vect3		ft_set_pixel_color(void)
 {
 	t_vect3		param[3];
@@ -62,18 +81,7 @@ t_vect3		ft_set_pixel_color(void)
 	ft_reset_values(&param[2]);
 	while (ft_set_ambience_intensity(&param[1], &param[0]))
 	{
-		if (g_data->color.x)
-			param[2].x = (g_data->color.x / 255) * (param[0].x *
-			ft_dot_product(ft_normal_vector(ft_vec_diff(g_data->li->pos, g_data->inter.p)),
-			g_data->inter.n) * param[1].x / ft_get_norm2(ft_vec_diff(g_data->li->pos, g_data->inter.p)));
-		if (g_data->color.y)
-			param[2].y = (g_data->color.y / 255) * (param[0].y *
-			ft_dot_product(ft_normal_vector(ft_vec_diff(g_data->li->pos, g_data->inter.p)),
-			g_data->inter.n) * param[1].y / ft_get_norm2(ft_vec_diff(g_data->li->pos, g_data->inter.p)));
-		if (g_data->color.z)
-			param[2].z = (g_data->color.z / 255) * (param[0].z *
-			ft_dot_product(ft_normal_vector(ft_vec_diff(g_data->li->pos, g_data->inter.p)),
-			g_data->inter.n) * param[1].z / ft_get_norm2(ft_vec_diff(g_data->li->pos, g_data->inter.p)));
+		ft_color_calc(param);
 		ft_check_abs_value(&param[2]);
 		ft_pixel_cmp(&param[2], &g_data->pixel);
 		if (g_data->li->id == -1 || !(g_data->li = g_data->li->next))

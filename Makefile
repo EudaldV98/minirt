@@ -6,7 +6,7 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/01/28 13:05:19 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/01/29 13:07:21 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC = 		image/ft_image.c image/ft_save_bmp.c \
 			parse/ft_parse_tr.c parse/ft_parse_utils.c parse/ft_set_ori.c \
 			\
 			raytrace/ft_draw.c raytrace/ft_color.c raytrace/ft_effects.c \
-			raytrace/ft_color_utils.c \
+			raytrace/ft_color_utils.c raytrace/ft_draw_utils.c \
 			\
 			utils/minirt_utils.c utils/ft_reset_lst.c \
 			utils/ft_atod.c utils/ft_atoi.c utils/ft_isdigit.c \
