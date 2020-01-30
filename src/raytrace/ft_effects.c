@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:05:08 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 14:50:39 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 18:34:17 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				ft_check_specular(t_ray ray)
 	if ((ft_strncmp(g_data->obj, "sp", 2) == 0 && g_data->sp->spec == 1)
 		|| (ft_strncmp(g_data->obj, "pl", 2) == 0 && g_data->pl->spec == 1)
 		|| (ft_strncmp(g_data->obj, "tr", 2) == 0 && g_data->tr->spec == 1)
-		|| (ft_strncmp(g_data->obj, "sq", 2) == 0 && g_data->tr->spec == 1)
+		|| (ft_strncmp(g_data->obj, "sq", 2) == 0 && g_data->sq->spec == 1)
 		|| (ft_strncmp(g_data->obj, "cy", 2) == 0 && g_data->cy->spec == 1))
 	{
 		d = ft_vec_mult_scalar(g_data->inter.n,
