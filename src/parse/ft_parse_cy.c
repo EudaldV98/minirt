@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:10:31 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 19:16:53 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 18:25:52 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		ft_parse_cy(char *s, int i)
 		g_data->cy->spec = 1;
 	else if (s[i] == 't')
 		i = ft_parse_cy_3(s, i);
-	if (i == -1 || (s[i] != '\n' && s[i] != '\0'))
+	if (i == -1 || s[i] != '\n')
 		return (-1);
 	if (g_data->cy->id == 0)
 		save_cy = g_data->cy;

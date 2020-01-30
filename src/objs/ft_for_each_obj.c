@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 06:32:03 by janeudaldva       #+#    #+#             */
-/*   Updated: 2020/01/29 17:25:57 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 18:05:24 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,16 @@ int				ft_for_each_obj(t_ray ray, t_vect3 *p, t_vect3 *n)
 	g_data->inter.pos = 0;
 	ft_reset_lst("all obj");
 	if (g_data->sp->next)
-		tmp = ft_for_each_sphere(ray, &vec_tmp[0], &vec_tmp[1]);
-	if (g_data->inter.pos < EPS || (tmp > 0 && tmp < g_data->inter.pos &&
-		g_data->inter.pos > 0) || (g_data->inter.pos <= 0 && tmp > 0))
 	{
-		g_data->inter.pos = tmp;
-		*p = vec_tmp[0];
-		*n = vec_tmp[1];
-		g_data->obj = "sp";
-		g_data->color = g_data->sp->color;
+		tmp = ft_for_each_sphere(ray, &vec_tmp[0], &vec_tmp[1]);
+		if (tmp > 0)
+		{
+			g_data->inter.pos = tmp;
+			*p = vec_tmp[0];
+			*n = vec_tmp[1];
+			g_data->obj = "sp";
+			g_data->color = g_data->sp->color;
+		}
 	}
 	ft_for_each_obj_2(ray, p, n, vec_tmp);
 	ft_for_each_obj_3(ray, p, n, vec_tmp);

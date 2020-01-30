@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:55:34 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 19:24:26 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 18:22:21 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void				ft_create_square_point(t_square *sq)
 
 int					ft_parse_sq_3(char *s, int i)
 {
-	if (s[i] == 'm')
+	if (s[i] == 's')
 		g_data->sq->spec = 1;
 	else if (s[i] == 't')
 	{

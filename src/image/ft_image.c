@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 17:08:44 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 12:56:20 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 16:25:33 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ void	ft_change_cam(int key)
 {
 	int		pos;
 
-	pos = g_data->image->id;
+	pos = g_data->im->id;
 	if (key == 123)
-		while (g_data->image->next->id != pos)
-			g_data->image = g_data->image->next;
+		while (g_data->im->next->id != pos)
+			g_data->im = g_data->im->next;
 	else if (key == 124)
-		g_data->image = g_data->image->next;
-	mlx_put_image_to_window(g_mlx.mlx, g_mlx.win, g_data->image->image, 0, 0);
+		g_data->im = g_data->im->next;
+	mlx_put_image_to_window(g_mlx.mlx, g_mlx.win, g_data->im->image, 0, 0);
 }
