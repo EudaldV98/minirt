@@ -6,11 +6,18 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 13:01:34 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 13:06:16 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 11:52:16 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
+
+void	ft_no_intersection(void)
+{
+	g_data->pixel = ft_vec_mult_scalar(ft_vec_mult_scalar(
+					g_data->amb.color, g_data->amb.ratio), 0.8);
+	ft_check_abs_value(&g_data->pixel);
+}
 
 void	ft_do_recursive_trans(t_vect3 tmp_pix, const int *coord, int num)
 {

@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 11:59:24 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 20:00:45 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 12:59:15 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,12 @@ t_vect3		ft_ray_trace(t_ray ray, const int coord[2], int num)
 			g_data->pixel = ft_set_pixel_color();
 			if (g_data->ratio_tran != 1 && ft_check_shadow(&g_data->inter.p,
 			&g_data->inter.n))
-				ft_reset_values(&g_data->pixel);
+				g_data->pixel = ft_vec_mult_scalar(g_data->pixel,
+				g_data->amb.ratio / 2);
 		}
 	}
 	else
-	{
-		g_data->pixel = ft_vec_mult_scalar(ft_vec_mult_scalar(
-						g_data->amb.color, g_data->amb.ratio), 0.8);
-		ft_check_abs_value(&g_data->pixel);
-	}
+		ft_no_intersection();
 	return (g_data->pixel);
 }
 

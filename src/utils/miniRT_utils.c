@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:57:11 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/28 12:15:49 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 12:55:54 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int			ft_malloc_data(void)
 		ft_print_error(-1);
 	if (!(g_data->tr = malloc(sizeof(t_triangle) * 1)))
 		ft_print_error(-1);
+	if (!(g_data->im = malloc(sizeof(t_image) * 1)))
+		ft_print_error(-1);
 	return (0);
 }
 
@@ -76,4 +78,6 @@ void		ft_init(void)
 	g_data->obj = "";
 	g_data->ratio_tran = 0;
 	g_data->ratio_spec = 0;
+	g_data->im->id = 0;
+	g_data->im->next = NULL;
 }

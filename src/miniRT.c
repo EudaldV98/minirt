@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:18 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 19:34:15 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 12:24:49 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int			main(int ac, char **av)
 
 	ft_check_error(ac);
 	ft_file(av, &len_name);
-	ft_new_img(g_data);
-	ft_draw(g_data);
+	ft_create_all_img();
 	if (ac == 2)
 		ft_put_scene();
 	else if (ac == 3 && !(ft_strcmp(av[2], "-save")))

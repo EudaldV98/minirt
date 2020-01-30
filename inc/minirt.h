@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 17:31:28 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/01/30 15:07:20 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_H
 
 # include "objs.h"
-# include "../minilibx_opengl/mlx.h"
+# include "mlx.h"
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -41,6 +41,8 @@ typedef struct		s_image
 	int				bpp;
 	int				stride;
 	int				endian;
+	int				id;
+	struct s_image	*next;
 }					t_image;
 
 typedef	struct		s_intersec
@@ -171,5 +173,8 @@ int					ft_strlen_nb(int nb);
 t_vect3				ft_vect_add_scalar(t_vect3 v, double d);
 void				ft_do_recursive_trans(t_vect3 tmp_pix, const int *coord,
 											int num);
+void				ft_no_intersection(void);
+void				ft_create_all_img(void);
+void				ft_change_cam(int key);
 
 #endif
