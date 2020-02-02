@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 11:59:24 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/31 14:39:06 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:36:34 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void		ft_draw(void)
 		while (coord[1] < (g_data->render[1]))
 		{
 			g_data->check = 0;
-			if (coord[0] == 950 && coord[1] == 1000)
+			if (coord[0] == 900 && coord[1] == 615)
 				g_data->check = 1;
 			ft_reset_values(&g_data->pixel);
 			ft_generate_ray(coord);
@@ -114,4 +114,7 @@ void		ft_draw(void)
 		}
 		coord[0]++;
 	}
+	coord[0] = 900;
+	coord[1] = 615;
+	ft_put_pixel_to_image(coord, 0xff0000);
 }

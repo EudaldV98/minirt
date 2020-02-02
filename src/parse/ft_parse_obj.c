@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 16:21:38 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/23 19:39:11 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/02 17:58:14 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int		ft_parse_obj(char *s, int i)
 			i = ft_parse_cy(s, i + 2);
 		else if (ft_strncmp(&s[i], "tr", 2) == 0)
 			i = ft_parse_tr(s, i + 2);
+		else
+			return (-1);
 		if (i == -1 || s[i] == '\0')
 			break ;
 		i++;
 	}
-	if (i == -1)
-		return (-1);
 	g_data->sp->id = -1;
 	g_data->pl->id = -1;
 	g_data->sq->id = -1;
 	g_data->cy->id = -1;
 	g_data->tr->id = -1;
-	return (i);
+	return (s[i] != '\0' ? -1 : i);
 }

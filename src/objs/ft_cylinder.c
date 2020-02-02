@@ -6,15 +6,15 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:49:20 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 18:12:56 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:21:43 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-void		ft_get_norm_cy(t_vect3 *n, t_ray ray)
+void			ft_get_norm_cy(t_vect3 *n, t_ray ray)
 {
-	t_vect3	temp;
+	t_vect3		temp;
 
 	*n = ft_vec_diff(ray.origin, g_data->cy->pos);
 	temp = ft_vec_mult_scalar(*n, ft_dot_product(*n, g_data->cy->pos));
@@ -24,7 +24,7 @@ void		ft_get_norm_cy(t_vect3 *n, t_ray ray)
 		*n = ft_vec_mult_scalar(*n, -1);
 }
 
-double		ft_intersection_ray_cy_2(t_vect3 hty, t_vect3 abc,
+double			ft_intersection_ray_cy_2(t_vect3 hty, t_vect3 abc,
 		t_vect3 cardoc)
 {
 	hty.x = sqrt(hty.x);
@@ -39,7 +39,7 @@ double		ft_intersection_ray_cy_2(t_vect3 hty, t_vect3 abc,
 	return (0);
 }
 
-int			ft_intersection_ray_cy(const t_ray ray, t_cylinder *cy)
+double			ft_intersection_ray_cy(const t_ray ray, t_cylinder *cy)
 {
 	t_vect3		ca;
 	t_vect3		oc;
@@ -63,19 +63,19 @@ int			ft_intersection_ray_cy(const t_ray ray, t_cylinder *cy)
 	return (ft_intersection_ray_cy_2(hty, abc, cardoc));
 }
 
-double		ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n)
+double			ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n)
 {
-	double	hit;
-	double	min;
-	int		pos;
+	double		hit;
+	double		min;
+	int			pos;
 
 	min = -1;
 	ft_reset_lst("cylinder");
 	while (1)
 	{
 		hit = ft_intersection_ray_cy(ray, g_data->cy);
-		if (hit > 0)
-			if (min == -1 || fmin(hit, min) == hit)
+		if (hit > EPS)
+			if (min == -1 || hit < min)
 			{
 				*p = ft_vec_add(ft_vec_mult_scalar(ray.dir, hit), ray.origin);
 				ft_get_norm_cy(n, ray);
@@ -89,5 +89,5 @@ double		ft_for_each_cy(t_ray ray, t_vect3 *p, t_vect3 *n)
 	if (min > 0)
 		while (g_data->cy->id != pos)
 			g_data->cy = g_data->cy->next;
-	return (ft_intersection_ray_cy(ray, g_data->cy));
+	return (min);
 }

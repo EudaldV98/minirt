@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:51:56 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/29 15:09:23 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/02 17:15:06 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ int		ft_get_color(double color[], char *s, int i)
 	j = 0;
 	while (j <= 2)
 	{
-		while (s[i] == ' ')
-			i++;
+		if (j == 0)
+			while (s[i] == ' ')
+				i++;
+		if (!ft_isdigit(s[i]))
+			return (-1);
 		color[j] = ft_atoi(&s[i]);
 		i += ft_strlen_nb(color[j]);
 		if (s[i] != ',' && j < 2)
-		{
 			return (-1);
-		}
 		i++;
 		j++;
 	}

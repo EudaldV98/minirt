@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:57:11 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 12:55:54 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/02 12:50:17 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char		*ft_read_file(char *av)
 	while ((r = read(fd, buff, BUFF_SIZE)) > 0)
 		size += r;
 	close(fd);
+	if (size == 0)
+		ft_print_error(-3);
 	fd = open(av, O_RDONLY);
 	if (!(ret = malloc(sizeof(char) * (size + 1))))
 		ft_print_error(-1);
