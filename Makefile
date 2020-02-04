@@ -6,7 +6,7 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/02/04 12:51:16 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/02/04 16:43:32 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,15 +57,12 @@ COMPIL =		$(FLAGS) $(FRAME)
 
 OBJS =			$(SRCS:.c=.o)
 
-OBJ =			$(addprefix $(./objet/), $(OBJS))
-
 NAME =			miniRT
 
 all:			$(NAME)
 
-$(NAME) :		$(OBJ)
-				$(RM) $(OBJS)
-				$(CC) $(COMPIL) -I $(DIR_HEADERS) $(OBJ) $(LMINX) -o $(NAME)
+$(NAME) :		$(OBJS)
+				$(CC) $(COMPIL) -I $(DIR_HEADERS) $(OBJS) $(LMINX) -o $(NAME)
 
 %.o: %.c
 				@gcc $(FLAGS) -I $(DIR_HEADERS) -c $< -o $@
