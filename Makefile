@@ -6,13 +6,25 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/02/04 12:05:49 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/02/04 12:51:16 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	miniRT
+CC =			gcc
+
+FLAGS =			-Wall -Wextra -Werror
+
+RM =			rm -rf
+
+DIR_HEADERS =	./inc/
 
 DIR_SRCS =		./src/
+
+DIR_OBJS =		./
+
+FRAME =			-framework OpenGl -framework AppKit
+
+LMINX = 	libmlx.a
 
 SRC = 		image/ft_image.c image/ft_save_bmp.c \
 			image/ft_print_error.c image/minirt_close_win.c \
@@ -39,32 +51,36 @@ SRC = 		image/ft_image.c image/ft_save_bmp.c \
 			\
 			minirt.c
 
-OBJS =	$(SRCS:.c=.o)
+SRCS =			$(addprefix $(DIR_SRCS), $(SRC))
 
-SRCS =	$(addprefix $(DIR_SRCS), $(SRC))
+COMPIL =		$(FLAGS) $(FRAME)
 
-CC =	gcc
+OBJS =			$(SRCS:.c=.o)
 
-FRAME = 	-framework OpenGL -framework AppKit
+OBJ =			$(addprefix $(./objet/), $(OBJS))
 
-LMINX = 	libmlx.a
+NAME =			miniRT
 
-CFLAGS =	-Wall -Wextra -Werror
+all:			$(NAME)
 
-all: $(NAME)
+$(NAME) :		$(OBJ)
+				$(RM) $(OBJS)
+				$(CC) $(COMPIL) -I $(DIR_HEADERS) $(OBJ) $(LMINX) -o $(NAME)
 
-.c.o:
-	@$(CC) -c $< -o $(<:.c=.o)
-	@echo "Compiled "$<" successfully!"
-	clean
+%.o: %.c
+				@gcc $(FLAGS) -I $(DIR_HEADERS) -c $< -o $@
+				@echo "Compiled "$<" successfully!"
 
-$(NAME):	$(OBJS)
-	@gcc $(FRAME) $(LMINX) -o $(NAME) $(OBJS)
+norme:
+				norminette $(DIR_SRCS)
+				norminette $(DIR_HEADERS)
 
 clean:
-	@rm -f $(OBJS)
-fclean: clean
-	@rm -f $(NAME)
-re: fclean all
+				$(RM) $(OBJS)
+
+fclean:			clean
+				$(RM) $(NAME)
+
+re:				fclean all
 
 .PHONY:			all, clean, fclean, re, bonus

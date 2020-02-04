@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:35:38 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 16:18:40 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/04 12:42:24 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_parse_ambiance(char *s, int i)
 	int		k;
 	double	aux[3];
 
+	k = 0;
 	while (s[i] == ' ')
 		i++;
 	if (s[i] < '0' || s[i] > '9')
