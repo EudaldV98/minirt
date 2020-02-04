@@ -6,7 +6,7 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/01/30 15:14:43 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/02/04 11:54:17 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,9 @@ SRCS =	$(addprefix $(DIR_SRCS), $(SRC))
 
 CC =	gcc
 
-FRAME = 	-lmlx -framework OpenGL -framework AppKit
+FRAME = 	-framework OpenGL -framework AppKit
+
+LMINX = 	libmlx.a
 
 CFLAGS =	-Wall -Wextra -Werror
 
@@ -56,7 +58,7 @@ all: $(NAME)
 	@echo "Compiled "$<" successfully!"
 
 $(NAME):	$(OBJS)
-	@gcc $(FRAME) -o $(NAME) $(OBJS)
+	@gcc $(FRAME) $(LMINX) -o $(NAME) $(OBJS)
 
 clean:
 	@rm -f $(OBJS)

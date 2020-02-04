@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 15:07:20 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/04 12:04:10 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_H
 
 # include "objs.h"
-# include "mlx.h"
+# include "../minilibx_opengl/mlx.h"
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
