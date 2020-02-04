@@ -6,7 +6,7 @@
 #    By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 19:37:18 by jvaquer           #+#    #+#              #
-#    Updated: 2020/02/04 11:54:17 by jvaquer          ###   ########.fr        #
+#    Updated: 2020/02/04 12:05:49 by jvaquer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ all: $(NAME)
 .c.o:
 	@$(CC) -c $< -o $(<:.c=.o)
 	@echo "Compiled "$<" successfully!"
+	clean
 
 $(NAME):	$(OBJS)
 	@gcc $(FRAME) $(LMINX) -o $(NAME) $(OBJS)
