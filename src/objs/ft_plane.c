@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:18:07 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 16:32:00 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/05 16:11:02 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ double		ft_for_each_pl(const t_ray ray, t_vect3 *p, t_vect3 *n)
 	while (1)
 	{
 		inter = ft_intersection_ray_pl(ray, g_data->pl, p, n);
-		if (inter != 0)
+		if (inter > EPS)
 			if (fmin(inter, min) == inter || min == -1)
 			{
 				min = inter;

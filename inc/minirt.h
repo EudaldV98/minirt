@@ -6,13 +6,14 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:09 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/02/04 12:04:10 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/05 15:36:32 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
+#include <stdio.h>
 # include "objs.h"
 # include "../minilibx_opengl/mlx.h"
 # include <math.h>

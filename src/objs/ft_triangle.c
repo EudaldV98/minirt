@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:59:35 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/27 19:16:13 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/05 15:51:15 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ double		ft_intersection_ray_tr(const t_ray ray, t_triangle *tr,
 		*n = ft_vec_mult_scalar(*n, -1);
 	t_alpha[0] = ft_dot_product(ft_vec_diff(tr->p_3, ray.origin), *n) /
 			ft_dot_product(ray.dir, *n);
-	if (t_alpha[0] < 0)
+	if (t_alpha[0] < EPS)
 		return (0);
 	*p = ft_vec_add(ray.origin, ft_vec_mult_scalar(ray.dir, t_alpha[0]));
 	u_v_w[0] = ft_vec_diff(tr->p_2, tr->p_1);
@@ -70,7 +70,7 @@ double		ft_for_each_tr(const t_ray ray, t_vect3 *p, t_vect3 *n)
 	while (1)
 	{
 		inter = ft_intersection_ray_tr(ray, g_data->tr, p, n);
-		if (inter != 0)
+		if (inter > EPS)
 			if (fmin(inter, min) == inter || min == -1)
 			{
 				min = inter;

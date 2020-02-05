@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:53:10 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/01/30 16:25:50 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/05 16:28:25 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_parse_camera(char *s, int i)
 		return (-1);
 	if (ft_set_ori(&g_data->cam->ori, aux, 1) == -1)
 		return (-1);
+	g_data->cam->ori.z *= -1;
 	while (s[i] == ' ')
 		i++;
 	g_data->cam->fov = ft_atoi(&s[i]);
