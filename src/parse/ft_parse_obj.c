@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 16:21:38 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/02/02 17:58:14 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/06 10:45:43 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int		ft_parse_obj(char *s, int i)
 	g_data->sq->id = -1;
 	g_data->cy->id = -1;
 	g_data->tr->id = -1;
+	g_data->cam = g_data->cam->next;
 	return (s[i] != '\0' ? -1 : i);
 }

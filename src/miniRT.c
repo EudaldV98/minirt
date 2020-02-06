@@ -6,13 +6,11 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:44:18 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/02/05 15:21:14 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/06 11:03:59 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
-#include <stdio.h>
-#include <time.h>
 
 void		ft_put_scene(void)
 {
